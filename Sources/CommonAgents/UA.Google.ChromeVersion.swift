@@ -33,3 +33,8 @@ extension UA.Google.ChromeVersion
     @inlinable public
     var components:(Int, Int, Int, Int) { (self.major, self.minor, self.build, self.patch) }
 }
+extension UA.Google.ChromeVersion:CustomStringConvertible
+{
+    @inlinable public
+    var description:String { "\(self.major).\(self.minor).\(self.build).\(self.patch)" }
+}
