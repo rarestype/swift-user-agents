@@ -13,8 +13,18 @@ extension UA
         {
             try input.parse(as: UnicodeEncoding.ParenthesisLeft.self)
 
-            let clauses:[String] = try input.parse(
-                as: Pattern.Join<ClauseRule, Separator, [String]>.self)
+            /// Trailing semicolon is optional.
+            var clauses:[String] = []
+            while let next:String = input.parse(as: ClauseRule?.self)
+            {
+                clauses.append(next)
+
+                guard case ()? = input.parse(as: Separator?.self)
+                else
+                {
+                    break
+                }
+            }
 
             try input.parse(as: UnicodeEncoding.ParenthesisRight.self)
 

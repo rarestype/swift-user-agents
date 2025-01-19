@@ -4,6 +4,7 @@ import PackageDescription
 let package:Package = .init(name: "swift-user-agents",
     platforms: [.macOS(.v15), .iOS(.v18), .tvOS(.v18), .visionOS(.v2), .watchOS(.v11)],
     products: [
+        .library(name: "CommonAgents", targets: ["CommonAgents"]),
         .library(name: "UA", targets: ["UA"]),
     ],
     dependencies: [
@@ -19,6 +20,12 @@ let package:Package = .init(name: "swift-user-agents",
         .target(name: "UA",
             dependencies: [
                 .product(name: "Grammar", package: "swift-grammar"),
+            ]),
+
+
+        .testTarget(name: "CommonAgentTests",
+            dependencies: [
+                .target(name: "CommonAgents"),
             ]),
 
         .testTarget(name: "UATests",
