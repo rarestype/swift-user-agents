@@ -24,11 +24,10 @@ extension UA.ClauseRule.CodeUnit:TerminalRule
     {
         switch terminal
         {
-        //    ';'   '('   ')'
-        case 0x3b, 0x28, 0x29:
-            nil
-        default:
-            ()
+        case 0x3b:  nil // ';'
+        case 0x28:  nil // '('
+        case 0x29:  nil // ')'
+        default:    ()
         }
     }
 }

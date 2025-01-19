@@ -1,12 +1,12 @@
 import Grammar
 
-extension UA.NameRule
+extension UA.TokenRule
 {
     enum CodeUnit
     {
     }
 }
-extension UA.NameRule.CodeUnit:TerminalRule
+extension UA.TokenRule.CodeUnit:TerminalRule
 {
     typealias Location = String.Index
     typealias Terminal = UInt8

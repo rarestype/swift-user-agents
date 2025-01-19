@@ -34,13 +34,13 @@ extension UA:CustomStringConvertible
 
             switch component
             {
-            case .single(let name, let version?):
+            case .product(let name, let version?):
                 string += "\(name)/\(version)"
 
-            case .single(let name, nil):
+            case .product(let name, nil):
                 string +=    name
 
-            case .group(let clauses):
+            case .comment(let clauses):
                 string += "("
                 string += clauses.joined(separator: " ")
                 string += ")"
@@ -54,7 +54,7 @@ extension UA:LosslessStringConvertible
     public
     init(parsing description:String) throws
     {
-        self.init(components: try ParsingRule.parse(description.utf8))
+        self.init(components: try HeaderRule.parse(description.utf8))
     }
 
     public
@@ -62,7 +62,7 @@ extension UA:LosslessStringConvertible
     {
         do
         {
-            self.init(components: try ParsingRule.parse(description.utf8))
+            self.init(components: try HeaderRule.parse(description.utf8))
         }
         catch
         {
@@ -75,7 +75,7 @@ extension UA:LosslessStringConvertible
     {
         do
         {
-            self.init(components: try ParsingRule.parse(description.utf8))
+            self.init(components: try HeaderRule.parse(description.utf8))
         }
         catch
         {

@@ -11,6 +11,11 @@ let package:Package = .init(name: "swift-user-agents",
             from: "0.5.0"),
     ],
     targets: [
+        .target(name: "CommonAgents",
+            dependencies: [
+                .target(name: "UA"),
+            ]),
+
         .target(name: "UA",
             dependencies: [
                 .product(name: "Grammar", package: "swift-grammar"),

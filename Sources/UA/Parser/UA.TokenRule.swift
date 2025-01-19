@@ -2,11 +2,11 @@ import Grammar
 
 extension UA
 {
-    enum NameRule
+    enum TokenRule
     {
     }
 }
-extension UA.NameRule:ParsingRule
+extension UA.TokenRule:ParsingRule
 {
     typealias Location = String.Index
     typealias Terminal = UInt8
