@@ -11,13 +11,13 @@ extension UA
             _ input:inout ParsingInput<some ParsingDiagnostics<Source>>) throws -> Component
             where Source:Collection<UInt8>, Source.Index == Location
         {
-            if  let name:String = input.parse(as: TokenRule?.self)
+            if  let comment:[String] = input.parse(as: CommentRule?.self)
             {
-                return .product(name, input.parse(as: VersionRule?.self))
+                return .comment(comment)
             }
             else
             {
-                return .comment(try input.parse(as: CommentRule.self))
+                return .product(try input.parse(as: ProductRule.self))
             }
         }
     }

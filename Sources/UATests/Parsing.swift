@@ -13,13 +13,13 @@ struct Parsing
             Version/17.1.2 Mobile/15E148 Safari/604.1
             """))
         #expect(parsed == [
-                .product("Mozilla", 5, "0"),
+                .product("Mozilla" / "5.0"),
                 .comment("iPhone", "CPU iPhone OS 17_1_2 like Mac OS X"),
-                .product("AppleWebKit", 605, "1.15"),
+                .product("AppleWebKit" / "605.1.15"),
                 .comment("KHTML, like Gecko"),
-                .product("Version", 17, "1.2"),
-                .product("Mobile", .nominal("15E148")),
-                .product("Safari", 604, "1"),
+                .product("Version" / "17.1.2"),
+                .product("Mobile" / "15E148"),
+                .product("Safari" / "604.1"),
             ])
     }
     @Test
@@ -31,12 +31,12 @@ struct Parsing
             Version/14.0 Safari/605.1.15
             """))
         #expect(parsed == [
-                .product("Mozilla", 5, "0"),
+                .product("Mozilla" / "5.0"),
                 .comment("Macintosh", "Intel Mac OS X 10_15_7"),
-                .product("AppleWebKit", 605, "1.15"),
+                .product("AppleWebKit" / "605.1.15"),
                 .comment("KHTML, like Gecko"),
-                .product("Version", 14, "0"),
-                .product("Safari", 605, "1.15"),
+                .product("Version" / "14.0"),
+                .product("Safari" / "605.1.15"),
             ])
     }
     @Test
@@ -49,17 +49,15 @@ struct Parsing
             Chrome/103.0.5060.134 Safari/537.36
             """))
         #expect(parsed == [
-                .product("Mozilla", 5, "0"),
-                .product("AppleWebKit", 537, "36"),
-
+                .product("Mozilla" / "5.0"),
+                .product("AppleWebKit" / "537.36"),
                 .comment(
                     "KHTML, like Gecko",
                     "compatible",
                     "bingbot/2.0",
                     "+http://www.bing.com/bingbot.htm"),
-
-                .product("Chrome", 103, "0.5060.134"),
-                .product("Safari", 537, "36"),
+                .product("Chrome" / "103.0.5060.134"),
+                .product("Safari" / "537.36"),
             ])
     }
     @Test
@@ -70,7 +68,7 @@ struct Parsing
             (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)
             """))
         #expect(parsed == [
-                .product("Mozilla", 5, "0"),
+                .product("Mozilla" / "5.0"),
                 .comment(
                     "compatible",
                     "Yahoo! Slurp",
@@ -85,13 +83,13 @@ struct Parsing
             (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.76
             """))
         #expect(parsed == [
-                .product("Mozilla", 5, "0"),
+                .product("Mozilla" / "5.0"),
                 .comment("Windows NT 10.0", "Win64", "x64"),
-                .product("AppleWebKit", 537, "36"),
+                .product("AppleWebKit" / "537.36"),
                 .comment("KHTML, like Gecko"),
-                .product("Chrome", 116, "0.0.0"),
-                .product("Safari", 537, "36"),
-                .product("Edg", 116, "0.1938.76"),
+                .product("Chrome" / "116.0.0.0"),
+                .product("Safari" / "537.36"),
+                .product("Edg" / "116.0.1938.76"),
             ])
     }
     @Test
@@ -101,7 +99,7 @@ struct Parsing
             Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)
             """))
         #expect(parsed == [
-                .product("Mozilla", 5, "0"),
+                .product("Mozilla" / "5.0"),
                 .comment("compatible", "CensysInspect/1.1", "+https://about.censys.io/"),
             ])
     }
@@ -113,12 +111,12 @@ struct Parsing
             Mobile Safari/537.36 (compatible; Bytespider; spider-feedback@bytedance.com)
             """))
         #expect(parsed == [
-                .product("Mozilla", 5, "0"),
+                .product("Mozilla" / "5.0"),
                 .comment("Linux", "Android 5.0"),
-                .product("AppleWebKit", 537, "36"),
+                .product("AppleWebKit" / "537.36"),
                 .comment("KHTML, like Gecko"),
-                .product("Mobile"),
-                .product("Safari", 537, "36"),
+                .product("Mobile" / ""),
+                .product("Safari" / "537.36"),
                 .comment(
                     "compatible",
                     "Bytespider",
@@ -132,7 +130,7 @@ struct Parsing
             Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)
             """))
         #expect(parsed == [
-                .product("Mozilla", 5, "0"),
+                .product("Mozilla" / "5.0"),
                 .comment(
                     "compatible",
                     "SemrushBot/7~bl",
@@ -148,13 +146,13 @@ struct Parsing
             Chrome/47.0.1610.1769 Mobile Safari/537.36
             """))
         #expect(parsed == [
-                .product("Mozilla", 5, "0"),
+                .product("Mozilla" / "5.0"),
                 .comment("Linux", "Android 8.0", "Pixel 2 Build/OPD3.170816.012"),
-                .product("AppleWebKit", 537, "36"),
+                .product("AppleWebKit" / "537.36"),
                 .comment("KHTML, like Gecko"),
-                .product("Chrome", 47, "0.1610.1769"),
-                .product("Mobile"),
-                .product("Safari", 537, "36"),
+                .product("Chrome" / "47.0.1610.1769"),
+                .product("Mobile" / ""),
+                .product("Safari" / "537.36"),
             ])
     }
     @Test
@@ -165,13 +163,13 @@ struct Parsing
             (KHTML, like Gecko) Chrome/53.0.2012.1059 Mobile Safari/537.36
             """))
         #expect(parsed == [
-                .product("Mozilla", 5, "0"),
+                .product("Mozilla" / "5.0"),
                 .comment("iPhone", "CPU iPhone OS 11_0 like Mac OS X"),
-                .product("AppleWebKit", 537, "36"),
+                .product("AppleWebKit" / "537.36"),
                 .comment("KHTML, like Gecko"),
-                .product("Chrome", 53, "0.2012.1059"),
-                .product("Mobile"),
-                .product("Safari", 537, "36"),
+                .product("Chrome" / "53.0.2012.1059"),
+                .product("Mobile" / ""),
+                .product("Safari" / "537.36"),
             ])
     }
     @Test
@@ -182,12 +180,12 @@ struct Parsing
             (KHTML, like Gecko) Chrome/76.0.2822.46 Safari/537.36
             """))
         #expect(parsed == [
-                .product("Mozilla", 5, "0"),
+                .product("Mozilla" / "5.0"),
                 .comment("Windows NT 6.3", "Win64", "x64"),
-                .product("AppleWebKit", 537, "36"),
+                .product("AppleWebKit" / "537.36"),
                 .comment("KHTML, like Gecko"),
-                .product("Chrome", 76, "0.2822.46"),
-                .product("Safari", 537, "36"),
+                .product("Chrome" / "76.0.2822.46"),
+                .product("Safari" / "537.36"),
             ])
     }
 }

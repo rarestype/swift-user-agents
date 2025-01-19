@@ -34,15 +34,12 @@ extension UA:CustomStringConvertible
 
             switch component
             {
-            case .product(let name, let version?):
-                string += "\(name)/\(version)"
-
-            case .product(let name, nil):
-                string +=    name
+            case .product(let product):
+                string += "\(product)"
 
             case .comment(let clauses):
                 string += "("
-                string += clauses.joined(separator: " ")
+                string += clauses.joined(separator: "; ")
                 string += ")"
             }
         }
