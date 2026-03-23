@@ -1,10 +1,7 @@
 import UA
 
-extension UA.Google
-{
-    @frozen public
-    enum CrawlerType:Equatable, Hashable, Sendable
-    {
+extension UA.Google {
+    @frozen public enum CrawlerType: Equatable, Hashable, Sendable {
         case cloudVertexBot
         case extended
         case googlebot
@@ -18,12 +15,9 @@ extension UA.Google
         case storebot
     }
 }
-extension UA.Google.CrawlerType
-{
-    init?(prefix:Substring)
-    {
-        switch prefix
-        {
+extension UA.Google.CrawlerType {
+    init?(prefix: Substring) {
+        switch prefix {
         case "Google-CloudVertexBot":   self = .cloudVertexBot
         case "Google-Extended":         self = .extended
         case "Googlebot":               self = .googlebot

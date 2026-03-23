@@ -1,39 +1,25 @@
 /// A user-agent string.
-@frozen public
-struct UA:Equatable, Hashable, Sendable
-{
-    public
-    var components:[Component]
+@frozen public struct UA: Equatable, Hashable, Sendable {
+    public var components: [Component]
 
-    @inlinable public
-    init(components:[Component])
-    {
+    @inlinable public init(components: [Component]) {
         self.components = components
     }
 }
-extension UA:ExpressibleByArrayLiteral
-{
-    @inlinable public
-    init(arrayLiteral:Component...)
-    {
+extension UA: ExpressibleByArrayLiteral {
+    @inlinable public init(arrayLiteral: Component...) {
         self.init(components: arrayLiteral)
     }
 }
-extension UA:CustomStringConvertible
-{
-    public
-    var description:String
-    {
-        var string:String = ""
-        for component in self.components
-        {
-            if !string.isEmpty
-            {
+extension UA: CustomStringConvertible {
+    public var description: String {
+        var string: String = ""
+        for component in self.components {
+            if !string.isEmpty {
                 string += " "
             }
 
-            switch component
-            {
+            switch component {
             case .product(let product):
                 string += "\(product)"
 
@@ -46,36 +32,23 @@ extension UA:CustomStringConvertible
         return string
     }
 }
-extension UA:LosslessStringConvertible
-{
-    public
-    init(parsing description:String) throws
-    {
+extension UA: LosslessStringConvertible {
+    public init(parsing description: String) throws {
         self.init(components: try HeaderRule.parse(description.utf8))
     }
 
-    public
-    init?(_ description:String)
-    {
-        do
-        {
+    public init?(_ description: String) {
+        do {
             self.init(components: try HeaderRule.parse(description.utf8))
-        }
-        catch
-        {
+        } catch {
             return nil
         }
     }
 
-    public
-    init?(_ description:Substring)
-    {
-        do
-        {
+    public init?(_ description: Substring) {
+        do {
             self.init(components: try HeaderRule.parse(description.utf8))
-        }
-        catch
-        {
+        } catch {
             return nil
         }
     }

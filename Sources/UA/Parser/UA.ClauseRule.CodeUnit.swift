@@ -1,7 +1,6 @@
 import Grammar
 
-extension UA.ClauseRule
-{
+extension UA.ClauseRule {
     /// A parsing rule that matches a character that can appear in a UA clause.
     ///
     /// ## Grammar
@@ -9,21 +8,16 @@ extension UA.ClauseRule
     /// ```ebnf
     /// Self = ^ ( ';' | '(' | ')' )
     /// ```
-    enum CodeUnit
-    {
+    enum CodeUnit {
     }
 }
-extension UA.ClauseRule.CodeUnit:TerminalRule
-{
+extension UA.ClauseRule.CodeUnit: TerminalRule {
     typealias Location = String.Index
     typealias Terminal = UInt8
     typealias Construction = Void
 
-    static
-    func parse(terminal:UInt8) -> Void?
-    {
-        switch terminal
-        {
+    static func parse(terminal: UInt8) -> Void? {
+        switch terminal {
         case 0x3b:  nil // ';'
         case 0x28:  nil // '('
         case 0x29:  nil // ')'

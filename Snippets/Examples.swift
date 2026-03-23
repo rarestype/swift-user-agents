@@ -1,36 +1,27 @@
 import CommonAgents
 import UA
 
-func detect(userAgent:String)
-{
+func detect(userAgent: String) {
     guard
-    let crawler:UA.Google = .init(detecting: userAgent)
-    else
-    {
+    let crawler: UA.Google = .init(detecting: userAgent) else {
         print("Not a Google Crawler")
         return
     }
 
     if  case .googlebot = crawler.type,
-        let chrome:UA.Google.ChromeVersion = crawler.chrome
-    {
+        let chrome: UA.Google.ChromeVersion = crawler.chrome {
         print("This is a Googlebot (Chrome/\(chrome))")
-    }
-    else if
+    } else if
         case .other = crawler.type,
-        let chrome:UA.Google.ChromeVersion = crawler.chrome
-    {
+        let chrome: UA.Google.ChromeVersion = crawler.chrome {
         print("This is an AI data harvester (Chrome/\(chrome))")
-    }
-    else
-    {
+    } else {
         print("This some other Google script")
     }
 }
 
-do
-{
-    let userAgent:(String, String)
+do {
+    let userAgent: (String, String)
 
     userAgent.0 = """
     Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) \
