@@ -15,6 +15,14 @@ a library dedicated to parsing the `user-agent` HTTP header field
 The swift-user-agents library requires Swift 6.0 or later.
 
 <!-- DO NOT EDIT BELOW! AUTOSYNC CONTENT [STATUS TABLE] -->
+| Platform | Status |
+| -------- | ------|
+| 🐧 Linux | [![Status](https://raw.githubusercontent.com/rarestype/swift-user-agents/refs/badges/ci/Tests/Linux/status.svg)](https://github.com/rarestype/swift-user-agents/actions/workflows/Tests.yml) |
+| 🍏 Darwin | [![Status](https://raw.githubusercontent.com/rarestype/swift-user-agents/refs/badges/ci/Tests/macOS/status.svg)](https://github.com/rarestype/swift-user-agents/actions/workflows/Tests.yml) |
+| 🍏 Darwin (iOS) | [![Status](https://raw.githubusercontent.com/rarestype/swift-user-agents/refs/badges/ci/Tests/iOS/status.svg)](https://github.com/rarestype/swift-user-agents/actions/workflows/Tests.yml) |
+| 🍏 Darwin (tvOS) | [![Status](https://raw.githubusercontent.com/rarestype/swift-user-agents/refs/badges/ci/Tests/tvOS/status.svg)](https://github.com/rarestype/swift-user-agents/actions/workflows/Tests.yml) |
+| 🍏 Darwin (visionOS) | [![Status](https://raw.githubusercontent.com/rarestype/swift-user-agents/refs/badges/ci/Tests/visionOS/status.svg)](https://github.com/rarestype/swift-user-agents/actions/workflows/Tests.yml) |
+| 🍏 Darwin (watchOS) | [![Status](https://raw.githubusercontent.com/rarestype/swift-user-agents/refs/badges/ci/Tests/watchOS/status.svg)](https://github.com/rarestype/swift-user-agents/actions/workflows/Tests.yml) |
 <!-- DO NOT EDIT ABOVE! AUTOSYNC CONTENT [STATUS TABLE] -->
 
 [Check deployment minimums](https://swiftinit.org/docs/swift-user-agents#ss:platform-requirements)
