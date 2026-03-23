@@ -1,15 +1,8 @@
 <div align="center">
 
-***`user-agents`***
+🪪 &nbsp; **swift-user-agents** &nbsp; 🪪
 
-[![Tests](https://github.com/tayloraswift/swift-user-agents/actions/workflows/Tests.yml/badge.svg)](https://github.com/tayloraswift/swift-user-agents/actions/workflows/Tests.yml)
-[![Documentation](https://github.com/tayloraswift/swift-user-agents/actions/workflows/Documentation.yml/badge.svg)](https://github.com/tayloraswift/swift-user-agents/actions/workflows/Documentation.yml)
-
-</div>
-
-The ***swift-user-agents*** library dedicated to parsing the `user-agent` HTTP header field, and matching it against formats of known vendors.
-
-<div align="center">
+a library dedicated to parsing the `user-agent` HTTP header field
 
 [documentation](https://swiftinit.org/docs/swift-user-agents) ·
 [license](LICENSE)
@@ -21,16 +14,8 @@ The ***swift-user-agents*** library dedicated to parsing the `user-agent` HTTP h
 
 The swift-user-agents library requires Swift 6.0 or later.
 
-
-| Platform | Status |
-| -------- | ------ |
-| 🐧 Linux | [![Tests](https://github.com/tayloraswift/swift-user-agents/actions/workflows/Tests.yml/badge.svg)](https://github.com/tayloraswift/swift-user-agents/actions/workflows/Tests.yml) |
-| 🍏 Darwin | [![Tests](https://github.com/tayloraswift/swift-user-agents/actions/workflows/Tests.yml/badge.svg)](https://github.com/tayloraswift/swift-user-agents/actions/workflows/Tests.yml) |
-| 🍏 Darwin (iOS) | [![iOS](https://github.com/tayloraswift/swift-user-agents/actions/workflows/iOS.yml/badge.svg)](https://github.com/tayloraswift/swift-user-agents/actions/workflows/iOS.yml) |
-| 🍏 Darwin (tvOS) | [![tvOS](https://github.com/tayloraswift/swift-user-agents/actions/workflows/tvOS.yml/badge.svg)](https://github.com/tayloraswift/swift-user-agents/actions/workflows/tvOS.yml) |
-| 🍏 Darwin (visionOS) | [![visionOS](https://github.com/tayloraswift/swift-user-agents/actions/workflows/visionOS.yml/badge.svg)](https://github.com/tayloraswift/swift-user-agents/actions/workflows/visionOS.yml) |
-| 🍏 Darwin (watchOS) | [![watchOS](https://github.com/tayloraswift/swift-user-agents/actions/workflows/watchOS.yml/badge.svg)](https://github.com/tayloraswift/swift-user-agents/actions/workflows/watchOS.yml) |
-
+<!-- DO NOT EDIT BELOW! AUTOSYNC CONTENT [STATUS TABLE] -->
+<!-- DO NOT EDIT ABOVE! AUTOSYNC CONTENT [STATUS TABLE] -->
 
 [Check deployment minimums](https://swiftinit.org/docs/swift-user-agents#ss:platform-requirements)
 
@@ -102,34 +87,26 @@ Parsers for other known vendors are WIP.
 import CommonAgents
 import UA
 
-func detect(userAgent:String)
-{
+func detect(userAgent: String) {
     guard
-    let crawler:UA.Google = .init(detecting: userAgent)
-    else
-    {
+    let crawler: UA.Google = .init(detecting: userAgent) else {
         print("Not a Google Crawler")
         return
     }
 
     if  case .googlebot = crawler.type,
-        let chrome:UA.Google.ChromeVersion = crawler.chrome
-    {
+        let chrome: UA.Google.ChromeVersion = crawler.chrome {
         print("This is a Googlebot (Chrome/\(chrome))")
-    }
-    else if
+    } else if
         case .other = crawler.type,
-        let chrome:UA.Google.ChromeVersion = crawler.chrome
-    {
+        let chrome: UA.Google.ChromeVersion = crawler.chrome {
         print("This is an AI data harvester (Chrome/\(chrome))")
-    }
-    else
-    {
+    } else {
         print("This some other Google script")
     }
 }
 
-let userAgent:(String, String)
+let userAgent: (String, String)
 
 userAgent.0 = """
 Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) \
