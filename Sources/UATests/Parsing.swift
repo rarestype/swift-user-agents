@@ -1,5 +1,5 @@
 import Testing
-@_spi(testable) import UA
+import UA
 
 @Suite struct Parsing {
     @Test static func iPhoneSafari() throws {
@@ -17,7 +17,7 @@ import Testing
                 .product("Version" / "17.1.2"),
                 .product("Mobile" / "15E148"),
                 .product("Safari" / "604.1"),
-            ]
+            ] as UA
         )
     }
     @Test static func macSafariWithPrivacyGuard() throws {
@@ -34,7 +34,7 @@ import Testing
                 .comment("KHTML, like Gecko"),
                 .product("Version" / "14.0"),
                 .product("Safari" / "605.1.15"),
-            ]
+            ] as UA
         )
     }
     @Test static func Bingbot() throws {
@@ -56,7 +56,7 @@ import Testing
                 ),
                 .product("Chrome" / "103.0.5060.134"),
                 .product("Safari" / "537.36"),
-            ]
+            ] as UA
         )
     }
     @Test static func Slurpbot() throws {
@@ -72,7 +72,7 @@ import Testing
                     "Yahoo! Slurp",
                     "http://help.yahoo.com/help/us/ysearch/slurp"
                 ),
-            ]
+            ] as UA
         )
     }
     @Test static func Edge() throws {
@@ -89,7 +89,7 @@ import Testing
                 .product("Chrome" / "116.0.0.0"),
                 .product("Safari" / "537.36"),
                 .product("Edg" / "116.0.1938.76"),
-            ]
+            ] as UA
         )
     }
     @Test static func Censys() throws {
@@ -100,7 +100,7 @@ import Testing
             parsed == [
                 .product("Mozilla" / "5.0"),
                 .comment("compatible", "CensysInspect/1.1", "+https://about.censys.io/"),
-            ]
+            ] as UA
         )
     }
     @Test static func TikTok() throws {
@@ -121,7 +121,7 @@ import Testing
                     "Bytespider",
                     "spider-feedback@bytedance.com"
                 ),
-            ]
+            ] as UA
         )
     }
     @Test static func Semrush() throws {
@@ -136,7 +136,7 @@ import Testing
                     "SemrushBot/7~bl",
                     "+http://www.semrush.com/bot.html"
                 ),
-            ]
+            ] as UA
         )
     }
     @Test static func PixelImposter() throws {
@@ -154,7 +154,7 @@ import Testing
                 .product("Chrome" / "47.0.1610.1769"),
                 .product("Mobile" / ""),
                 .product("Safari" / "537.36"),
-            ]
+            ] as UA
         )
     }
     @Test static func iPhoneImposter() throws {
@@ -171,7 +171,7 @@ import Testing
                 .product("Chrome" / "53.0.2012.1059"),
                 .product("Mobile" / ""),
                 .product("Safari" / "537.36"),
-            ]
+            ] as UA
         )
     }
     @Test static func WindowsImposter() throws {
@@ -187,7 +187,7 @@ import Testing
                 .comment("KHTML, like Gecko"),
                 .product("Chrome" / "76.0.2822.46"),
                 .product("Safari" / "537.36"),
-            ]
+            ] as UA
         )
     }
 }

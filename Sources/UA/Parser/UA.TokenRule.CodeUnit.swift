@@ -11,7 +11,7 @@ extension UA.TokenRule.CodeUnit: TerminalRule {
 
     static func parse(terminal: UInt8) -> Void? {
         switch terminal {
-        case    0x30 ... 0x39,  //  '0' ... '9'
+        case 0x30 ... 0x39,  //  '0' ... '9'
             0x41 ... 0x5a,  //  'A' ... 'Z'
             0x61 ... 0x7a,  //  'a' ... 'z'
             0x21,           //  '!'

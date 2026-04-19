@@ -4,11 +4,12 @@ import UA
 
 @Suite struct Google {
     @Test static func Googlebot1() throws {
-        let crawler: UA.Google = try #require(.init(detecting: """
-                Mozilla/5.0 AppleWebKit/537.36 \
-                (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) \
-                Chrome/132.0.6834.83 Safari/537.36
-                """))
+        let userAgent: String = """
+        Mozilla/5.0 AppleWebKit/537.36 \
+        (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) \
+        Chrome/132.0.6834.83 Safari/537.36
+        """
+        let crawler: UA.Google = try #require(.init(detecting: userAgent))
         let chrome: UA.Google.ChromeVersion = try #require(crawler.chrome)
         #expect(chrome.components == (132, 0, 6834, 83))
         #expect(crawler.type == .googlebot)

@@ -7,7 +7,7 @@ extension UA {
 
         static func parse<Source>(
             _ input: inout ParsingInput<some ParsingDiagnostics<Source>>
-        ) throws -> [String]
+        ) throws(PatternMatchingError) -> [String]
             where Source: Collection<UInt8>, Source.Index == Location {
             try input.parse(as: UnicodeEncoding.ParenthesisLeft.self)
 

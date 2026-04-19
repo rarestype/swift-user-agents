@@ -8,8 +8,7 @@ extension UA.ClauseRule {
     /// ```ebnf
     /// Self = ^ ( ';' | '(' | ')' )
     /// ```
-    enum CodeUnit {
-    }
+    enum CodeUnit {}
 }
 extension UA.ClauseRule.CodeUnit: TerminalRule {
     typealias Location = String.Index

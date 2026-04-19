@@ -7,7 +7,7 @@ extension UA.CommentRule {
 
         static func parse<Source>(
             _ input: inout ParsingInput<some ParsingDiagnostics<Source>>
-        ) throws -> Void
+        ) throws(PatternMatchingError)
             where Source: Collection<UInt8>, Source.Index == Location {
             try input.parse(as: UnicodeEncoding.Semicolon.self)
             input.parse(as: UA.WhitespaceRule.self, in: Void.self)

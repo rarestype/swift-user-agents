@@ -7,7 +7,7 @@ extension UA {
 
         static func parse<Source>(
             _ input: inout ParsingInput<some ParsingDiagnostics<Source>>
-        ) throws -> Component
+        ) throws(PatternMatchingError) -> Component
             where Source: Collection<UInt8>, Source.Index == Location {
             if  let comment: [String] = input.parse(as: CommentRule?.self) {
                 return .comment(comment)
