@@ -7,7 +7,7 @@ extension UA {
 
         static func parse<Source>(
             _ input: inout ParsingInput<some ParsingDiagnostics<Source>>
-        ) throws -> Product
+        ) throws(PatternMatchingError) -> Product
             where Source: Collection<UInt8>, Source.Index == Location {
             let name: String = try input.parse(as: TokenRule.self)
 

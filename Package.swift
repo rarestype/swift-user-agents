@@ -10,7 +10,7 @@ let package: Package = .init(
     ],
     dependencies: [
         .package(url: "https://github.com/ordo-one/dollup", from: "1.0.1"),
-        .package(url: "https://github.com/rarestype/gram", from: "1.0.0"),
+        .package(url: "https://github.com/rarestype/gram", from: "2.0.0"),
     ],
     targets: [
         .target(
@@ -46,7 +46,7 @@ let package: Package = .init(
 
 for target: Target in package.targets {
     {
-        var settings: [ SwiftSetting] = $0 ?? []
+        var settings: [SwiftSetting] = $0 ?? []
 
         settings.append(.enableUpcomingFeature("ExistentialAny"))
         settings.append(.enableExperimentalFeature("StrictConcurrency"))
