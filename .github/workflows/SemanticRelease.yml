@@ -91,13 +91,8 @@ jobs:
                     git config user.name "rarest automation"
                     git config user.email "automation@noreply.rarestype.com"
 
-                    git commit \
-                        --allow-empty \
-                        -m "[release]: ${{ needs.release.outputs.version }}"
-
                     git tag "${{ needs.release.outputs.version }}"
                     git push origin "${{ needs.release.outputs.version }}"
-                    git push
 
             -   name: ⚡ Create release ⚡
                 if: env.CREATE_RELEASE == 'true'
