@@ -1,8 +1,7 @@
 import Grammar
 
 extension UA.TokenRule {
-    enum CodeUnit {
-    }
+    enum CodeUnit {}
 }
 extension UA.TokenRule.CodeUnit: TerminalRule {
     typealias Location = String.Index
