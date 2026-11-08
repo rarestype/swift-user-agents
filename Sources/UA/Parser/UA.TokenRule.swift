@@ -1,8 +1,7 @@
 import Grammar
 
 extension UA {
-    enum TokenRule {
-    }
+    enum TokenRule {}
 }
 extension UA.TokenRule: ParsingRule {
     typealias Location = String.Index
